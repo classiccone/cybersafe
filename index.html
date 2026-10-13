@@ -42,8 +42,8 @@
   <main id="main" class="container">
 
     <!-- ================= VIEW 1: HOME / LEVEL MAP ================= -->
-    <section id="view-home" class="view" aria-labelledby="home-title">
-      <div class="hero">
+    <section id="view-home" class="view home" aria-labelledby="home-title">
+      <div class="home-left hero">
         <img class="hero-logo" src="logo.svg" alt="" aria-hidden="true" />
         <h1 id="home-title">CyberSafe</h1>
         <p class="subtitle">Can You Outsmart the Scam?</p>
@@ -60,6 +60,7 @@
         </button>
       </div>
 
+      <div class="home-right">
       <div class="dash-summary" aria-label="Your stats">
         <div class="summary-card c-yellow"><span class="summary-icon" aria-hidden="true">⭐</span><span class="summary-value" id="dash-score">0</span><span class="summary-label">points</span></div>
         <div class="summary-card c-green"><span class="summary-icon" aria-hidden="true">✅</span><span class="summary-value" id="dash-completed">0/10</span><span class="summary-label">levels</span></div>
@@ -73,56 +74,61 @@
       <div class="home-footer-actions">
         <button class="btn btn-ghost btn-small" id="btn-reset-home" type="button"><span aria-hidden="true">↺</span> Reset progress</button>
       </div>
+      </div>
     </section>
 
     <!-- ================= VIEW 2: LEVEL / LESSON ================= -->
-    <section id="view-lesson" class="view" hidden aria-labelledby="lesson-title">
+    <section id="view-lesson" class="view lesson" hidden aria-labelledby="lesson-title">
       <nav class="lesson-nav-top" aria-label="Level navigation">
         <button class="btn btn-ghost btn-small" id="btn-back-home" type="button"><span aria-hidden="true">←</span> Map</button>
         <span class="level-chip" id="lesson-counter">Level 1</span>
       </nav>
 
-      <article class="card lesson-card">
-        <header class="lesson-header">
-          <span class="lesson-icon" id="lesson-icon" aria-hidden="true">🎣</span>
-          <div>
-            <h1 id="lesson-title">Title</h1>
-            <p class="lesson-explanation" id="lesson-explanation"></p>
-          </div>
-        </header>
-
-        <!-- Tip chips: 3 very short reminders -->
-        <ul id="lesson-tips" class="tip-chips" aria-label="Quick tips"></ul>
-
-        <!-- Scenario mock-up (email / DM / call / etc.) with tappable clues -->
-        <section class="scene" aria-labelledby="scene-heading">
-          <div class="scene-head">
-            <h2 id="scene-heading" class="block-heading"><span aria-hidden="true">🔍</span> Tap the clues</h2>
-            <span class="clue-counter" id="clue-counter"></span>
-          </div>
+      <!-- Left column: the scenario mock-up with tappable clues -->
+      <section class="scene card" aria-labelledby="scene-heading">
+        <div class="scene-head">
+          <h2 id="scene-heading" class="block-heading"><span aria-hidden="true">🔍</span> Tap the clues</h2>
+          <span class="clue-counter" id="clue-counter"></span>
+        </div>
+        <div class="scene-scroll">
           <div id="lesson-scenario" class="scene-body"></div>
           <div class="clue-hint" id="clue-hint" aria-live="polite" hidden></div>
-        </section>
+        </div>
+      </section>
 
-        <section class="quiz" aria-labelledby="quiz-question">
-          <p class="quiz-question" id="quiz-question"></p>
-          <div class="choices" id="quiz-choices" role="group" aria-label="Answers"></div>
-          <div class="feedback" id="quiz-feedback" aria-live="polite" hidden>
-            <p class="feedback-title" id="feedback-title"></p>
-            <p class="feedback-text" id="feedback-text"></p>
-          </div>
-        </section>
+      <!-- Right column: lesson info, question, answers, feedback, navigation -->
+      <article class="card lesson-card">
+        <div class="lesson-scroll">
+          <header class="lesson-header">
+            <span class="lesson-icon" id="lesson-icon" aria-hidden="true">🪝</span>
+            <div>
+              <h1 id="lesson-title">Title</h1>
+              <p class="lesson-explanation" id="lesson-explanation"></p>
+            </div>
+          </header>
+          <ul id="lesson-tips" class="tip-chips" aria-label="Quick tips"></ul>
+
+          <section class="quiz" aria-labelledby="quiz-question">
+            <p class="quiz-question" id="quiz-question"></p>
+            <div class="choices" id="quiz-choices" role="group" aria-label="Answers"></div>
+            <div class="feedback" id="quiz-feedback" aria-live="polite" hidden>
+              <p class="feedback-title" id="feedback-title"></p>
+              <p class="feedback-text" id="feedback-text"></p>
+            </div>
+          </section>
+        </div>
+
+        <nav class="lesson-nav-bottom" aria-label="Previous and next level">
+          <button class="btn btn-ghost" id="btn-prev" type="button"><span aria-hidden="true">←</span> Back</button>
+          <button class="btn btn-primary" id="btn-next" type="button" disabled>Next <span aria-hidden="true">→</span></button>
+        </nav>
       </article>
-
-      <nav class="lesson-nav-bottom" aria-label="Previous and next level">
-        <button class="btn btn-ghost" id="btn-prev" type="button"><span aria-hidden="true">←</span> Back</button>
-        <button class="btn btn-primary" id="btn-next" type="button" disabled>Next <span aria-hidden="true">→</span></button>
-      </nav>
     </section>
 
     <!-- ================= VIEW 3: RESULTS ================= -->
     <section id="view-results" class="view" hidden aria-labelledby="results-title">
       <div class="card results-card">
+       <div class="results-left">
         <span class="results-icon" id="results-icon" aria-hidden="true">🏆</span>
         <h1 id="results-title">Game over!</h1>
 
@@ -139,7 +145,8 @@
         <p class="results-message" id="results-message"></p>
 
         <div class="badge-row" id="badge-row" aria-label="Badges earned"></div>
-
+       </div>
+       <div class="results-right">
         <h2 class="section-title">Level recap</h2>
         <ul class="recap-grid" id="results-list"></ul>
 
@@ -148,6 +155,7 @@
           <button class="btn btn-ghost" id="btn-share" type="button"><span aria-hidden="true">📋</span> Copy my score</button>
           <button class="btn btn-ghost" id="btn-results-home" type="button">Level map</button>
         </div>
+       </div>
       </div>
     </section>
   </main>

@@ -428,6 +428,7 @@ function renderLevel(i) {
     `<button type="button" class="choice k${k}" data-choice="${k}"><span class="choice-shape" aria-hidden="true">${shapes[k]}</span><span>${c}</span></button>`).join('');
 
   $('quiz-feedback').hidden = true;
+  document.querySelector('.lesson-card').classList.remove('is-answered');
   if (isAnswered(i)) showAnswerResult(i, state.answers[i].choice, true);
 
   $('btn-prev').disabled = i === 0;
@@ -455,6 +456,7 @@ function showAnswerResult(i, chosen, silent) {
   $('feedback-title').textContent = correct ? `🎉 Nailed it! +${POINTS}` : `😬 Nope. It was ${['A','B','C','D'][L.answer]}.`;
   $('feedback-text').textContent = L.why;
   fb.hidden = false;
+  document.querySelector('.lesson-card').classList.add('is-answered'); // desktop CSS hides the tips to make room
   if (!silent) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
