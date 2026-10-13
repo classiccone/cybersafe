@@ -5,6 +5,9 @@ Human-Computer Interaction (HCI) class project. It teaches college students
 practical online-safety habits through **ten short lessons**, each paired with
 a realistic scenario and a one-question quiz.
 
+**Play it here:** https://cybersafe-lime.vercel.app
+(mirror: https://classiccone.github.io/cybersafe/)
+
 ## Project purpose
 
 College students are heavily targeted by phishing emails, fake job offers,
@@ -79,12 +82,11 @@ No build tools, server, or installation required.
 2. Double-click `index.html` to open it in any modern browser
    (Chrome, Firefox, Safari, Edge).
 
-**Option 2 – GitHub Pages**
+**Option 2 – online**
 
-1. Push the folder to a GitHub repository.
-2. In the repository go to *Settings → Pages*, choose the branch and the
-   folder containing `index.html`, and save.
-3. Open the published URL.
+The site is deployed on Vercel at https://cybersafe-lime.vercel.app and on
+GitHub Pages at https://classiccone.github.io/cybersafe/. Both are built
+straight from this repository's `main` branch, no build step.
 
 **Option 3 – local web server (optional)**
 
